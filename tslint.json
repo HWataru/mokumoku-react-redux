@@ -1,5 +1,10 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "variable-name": [true, "ban-keywords", "allow-leading-underscore"]
+  },
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
