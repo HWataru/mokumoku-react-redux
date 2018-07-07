@@ -10,6 +10,12 @@ cd mokumoku/
 npm start
 ```
 
+if you got erorrs like, it may be coused by `selenium`
+
+> Uncaught (in promise) {message: "Could not establish connection. Receiving end does not exist."} [browser-polyfill.js:610]
+
+check <https://github.com/aurelia/cli/issues/894>
+
 ## make list View
 
 ## install Redux
