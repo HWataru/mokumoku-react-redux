@@ -16,6 +16,12 @@ if you got erorrs like, it may be coused by `selenium`
 
 check <https://github.com/aurelia/cli/issues/894>
 
+## install material-ui
+
+```sh
+yarn add @material-ui/core @material-ui/icons
+```
+
 ## make list View
 
 ## install Redux
