@@ -24,6 +24,25 @@ yarn add @material-ui/core @material-ui/icons
 
 ## make list View
 
+```js
+//Simple List State doesn't use now.
+interface IState {
+    nothing?: string;
+}
+//Simple Props for List
+interface ISimpleListProps {
+    list: Item[]
+    name: string
+}
+```
+
 ## install Redux
+
+```sh
+yarn add react-redux
+```
+
+## make Redux Store
+
 
 ## finish
