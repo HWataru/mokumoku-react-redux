@@ -25,7 +25,8 @@ yarn add @material-ui/core @material-ui/icons
 ## make list View
 
 ```js
-//Simple List State doesn't use now.
+//Simple List State doesn't use now...
+//It's better to use SFC ?
 interface IState {
     nothing?: string;
 }
@@ -33,6 +34,40 @@ interface IState {
 interface ISimpleListProps {
     list: Item[]
     name: string
+}
+```
+
+```js
+class SimpleList extends React.Component<ISimpleListProps, IState> {
+  public constructor(props: ISimpleListProps) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  public handleDelete(event: any){
+    if(this.props.delItem){
+      this.props.delItem(event);
+    }
+  }
+  public render() {
+    return (
+      <div>
+        <List component="nav">
+          {this.props.items.map((item, index) => {
+            return (
+              <ListItem button={true} key={index}>
+                <ListItemText primary={item.name} />
+                <ListItemSecondaryAction>
+                      <IconButton onClick={this.handleDelete.bind(this,item.id)} aria-label="Delete">
+                        <DeleteIcon />
+                      </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+            );
+          })}
+        </List>
+      </div>
+    );
+  }
 }
 ```
 
@@ -113,7 +148,6 @@ function configureStore(){
         }
     }
     const store = createStore(reducer, preloadedState);
-    console.log("store.getState()", store.getState())
     return store;
 }
 
