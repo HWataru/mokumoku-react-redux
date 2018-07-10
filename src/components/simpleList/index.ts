@@ -1,2 +1,2 @@
-export * from './SimpleList'
-export * from './ItemForm'
+export * from "./SimpleList";
+export * from "./ItemForm";

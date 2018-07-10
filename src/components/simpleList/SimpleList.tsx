@@ -4,7 +4,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Item from "../../models/Item";
 import { ListItemSecondaryAction, IconButton } from "@material-ui/core";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from "@material-ui/icons/Delete";
 
 interface IState {
   nothing?: string;
@@ -14,7 +14,7 @@ interface ISimpleListProps {
   items: Item[];
   name: string;
   addItem?: any;
-  delItem?:any;
+  delItem?: any;
 }
 
 class SimpleList extends React.Component<ISimpleListProps, IState> {
@@ -22,8 +22,8 @@ class SimpleList extends React.Component<ISimpleListProps, IState> {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
   }
-  public handleDelete(event: any){
-    if(this.props.delItem){
+  public handleDelete(event: any) {
+    if (this.props.delItem) {
       this.props.delItem(event);
     }
   }
@@ -36,9 +36,12 @@ class SimpleList extends React.Component<ISimpleListProps, IState> {
               <ListItem button={true} key={index}>
                 <ListItemText primary={item.name} />
                 <ListItemSecondaryAction>
-                      <IconButton onClick={this.handleDelete.bind(this,item.id)} aria-label="Delete">
-                        <DeleteIcon />
-                      </IconButton>
+                  <IconButton
+                    onClick={this.handleDelete.bind(this, item.id)}
+                    aria-label="Delete"
+                  >
+                    <DeleteIcon />
+                  </IconButton>
                 </ListItemSecondaryAction>
               </ListItem>
             );

@@ -1,31 +1,31 @@
-import * as React from 'react';
-import './App.css';
-import { SimpleList, ISimpleListProps, ItemForm } from './simpleList';
-import logo from './logo.svg';
-import Item from '../models/Item'
+import * as React from "react";
+import "./App.css";
+import { SimpleList, ISimpleListProps, ItemForm } from "./simpleList";
+import logo from "./logo.svg";
+import Item from "../models/Item";
 
 interface IAppState {
-  simpleList: ISimpleListProps
+  simpleList: ISimpleListProps;
 }
 interface IAppProps {
-  simpleList: ISimpleListProps,
-  addItem: (item:Item) => any,
-  delItem: (id:number) => any
+  simpleList: ISimpleListProps;
+  addItem: (item: Item) => any;
+  delItem: (id: number) => any;
 }
 
 class App extends React.Component<IAppProps, IAppState> {
-  public constructor(props: IAppProps){
-    super(props)
+  public constructor(props: IAppProps) {
+    super(props);
     this.state = {
       simpleList: props.simpleList
-    }
+    };
     this.handleAddItem = this.handleAddItem.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
-  public handleAddItem(item: Item){
+  public handleAddItem(item: Item) {
     this.props.addItem(item);
   }
-  public handleDeleteItem(id: number){
+  public handleDeleteItem(id: number) {
     this.props.delItem(id);
   }
   public render() {
@@ -39,12 +39,11 @@ class App extends React.Component<IAppProps, IAppState> {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <ItemForm addItem={this.handleAddItem}/>
-        <SimpleList items={items} name={name} delItem={this.handleDeleteItem}/>
+        <ItemForm addItem={this.handleAddItem} />
+        <SimpleList items={items} name={name} delItem={this.handleDeleteItem} />
       </div>
     );
   }
 }
 
-
-export { App, IAppState, IAppProps } ;
+export { App, IAppState, IAppProps };

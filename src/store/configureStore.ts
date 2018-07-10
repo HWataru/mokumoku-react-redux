@@ -1,15 +1,15 @@
-import { createStore } from 'redux';
-import reducer from '../reducer'
+import { createStore } from "redux";
+import reducer from "../reducer";
 
-function configureStore(){
-    const preloadedState = {
-        simpleList:{
-            items: [],
-            name: "hoge"
-        }
+function configureStore() {
+  const preloadedState = {
+    simpleList: {
+      items: [],
+      name: "hoge"
     }
-    const store = createStore(reducer, preloadedState);
-    return store;
+  };
+  const store = createStore(reducer, preloadedState);
+  return store;
 }
 
 export default configureStore;
