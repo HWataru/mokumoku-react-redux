@@ -20,7 +20,6 @@ export class ItemForm extends React.Component<IAddItemProps,IItemFormSate> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     public handleChange(event:any){
-        console.log(this)
         const item = this.state.item;
         let newItem:Item;
         switch (event.target.name) {
@@ -34,11 +33,9 @@ export class ItemForm extends React.Component<IAddItemProps,IItemFormSate> {
                 newItem = item;
                 break;
         }
-        console.log('newItem', newItem)
         this.setState({item: newItem});
     }
     public handleSubmit(event:any){
-        console.log("submit item", this.state.item);
         
         if(this.props.addItem){
             const oldItem = this.state.item;

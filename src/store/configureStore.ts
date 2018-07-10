@@ -9,7 +9,6 @@ function configureStore(){
         }
     }
     const store = createStore(reducer, preloadedState);
-    console.log("store.getState()", store.getState())
     return store;
 }
 

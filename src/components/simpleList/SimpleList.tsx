@@ -24,7 +24,6 @@ class SimpleList extends React.Component<ISimpleListProps, IState> {
   }
   public handleDelete(event: any){
     if(this.props.delItem){
-      console.log(this);
       this.props.delItem(event);
     }
   }
