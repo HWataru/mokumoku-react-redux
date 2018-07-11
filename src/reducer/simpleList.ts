@@ -1,23 +1,23 @@
 import { ISimpleListProps } from "../components/simpleList";
 import Item from "../models/Item";
-import { IItemAction } from "../actions";
+import { IItemAddAction, IItemDeleteAction } from "../actions";
 
 const simpleList = (
   state: ISimpleListProps = { items: [], name: "" },
-  action: IItemAction
+  action: IItemAddAction | IItemDeleteAction
 ) => {
   switch (action.type) {
     case "ADD_ITEM":
-      if (!action.item) {
+      if (!action.payload || !(action.payload instanceof Item)) {
         return state;
       }
       {
-        const newItemsAdded: Item[] = [...state.items, action.item];
+        const newItemsAdded: Item[] = [...state.items, action.payload];
         return { items: newItemsAdded, name: state.name };
       }
     case "DELETE_ITEM":
-      const id = action.id;
-      if (action.id === undefined) {
+      const id = action.payload;
+      if (id === undefined || typeof id !== "number") {
         return state;
       }
       const newItemsDeleted = state.items.filter(item => item.id !== id);
